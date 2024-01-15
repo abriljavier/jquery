@@ -1,0 +1,39 @@
+</html>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DWEC</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('p').wrapAll('<div style="border: 3px solid red"></div>');
+
+      $('p').wrap('<div style="border: 1px solid blue"></div>');
+
+      $('li:eq(0)').text('Another hero');
+
+      $('p:eq(0)').text($('li:eq(0)').text());
+
+    });
+  </script>
+</head>
+
+<body>
+
+  <ul class="avengers">
+    <li>Ironman</li>
+    <li>Thor</li>
+    <li>Captain America</li>
+    <li>Hulk</li>
+  </ul>
+
+  <p>Test text</p>
+  <p>Test text 2</p>
+  <p>Test text 3</p>
+  <p>Test text 4</p>
+
+</body>
+
+</html>

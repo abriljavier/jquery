@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Get all the "p" tags.
+            console.log($('p'));
+            // Get the tag with "todo-list" id.
+            console.log($('#todo-list'));
+            // Get all the "p" elements and all the "li" with class "b".
+            console.log($('p, li.b'));
+            // Get all the tags in the webpage.
+            console.log($('*'));
+            // Get the elements with id "important" and class "a"
+            console.log($('#important.a'));
+            // Get the siblings of the "p" element just after the "ul".
+            console.log($('ul+p:gt(0)'));
+            // Get all the tags inside a "ul" with class "b".
+            console.log($('ul .b'));
+            // Get the "p" element just after the "ul".
+            console.log($('ul+p:first'));
+            // Get the "p" element with classes "t1" and "t2".
+            console.log($('p.t1.t2'));
+        });
+    </script>
+</head>
+
+<body>
+    <ul id="todo-list">
+        <li id="important" class="a">Estudiar</li>
+        <li class="b">Ir al gimnasio</li>
+        <li class="a">Comprar pan</li>
+        <li class="b">Enviar correos del trabajo</li>
+    </ul>
+
+    <p class="t1 t2">Párrafo 1</p>
+    <p class="t1">Párrafo 2</p>
+    <p class="t2">Párrafo 3</p>
+    <p class="t1 t2">Párrafo 4</p>
+    <p>Párrafo 5</p>
+</body>
+
+</html>

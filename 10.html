@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Function</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var allPs = $('p[class]');
+
+      function replaceWithH1() {
+        for (const p of allPs) {
+          let newElement = $('<h1>', {
+            text: p.innerText,
+          });
+          console.log(newElement.text());
+          $('p[class]').replaceWith(newElement);
+        }
+      }
+
+      replaceWithH1();
+    });
+  </script>
+</head>
+
+<body>
+  <p class="one">One</p>
+  <p class="two">two</p>
+  <p class="three">three</p>
+  <p class="four">Four</p>
+  <p>No Class</p>
+</body>
+
+</html>

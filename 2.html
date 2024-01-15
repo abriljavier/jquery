@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Get the first "p" element.
+            console.log($('p:first'));
+            // Get all the elements after the index 1.
+            console.log($('*:gt(2)'));
+            // Get the last "p" element.
+            console.log($('p:last'));
+            // Get all the paragraphs but the one in the position 2.
+            console.log($('p:not(p:eq(2))'));
+            // Get the even "p" elements.
+            console.log($('p:even'));
+            // Get the first element with class "a".
+            console.log($('.a:first'));
+            // Get the odd elements with class "b".
+            console.log($('.b:odd'));
+        });
+    </script>
+</head>
+
+<body>
+    <ul id="todo-list">
+        <li id="important" class="a">Estudiar</li>
+        <li class="b">Ir al gimnasio</li>
+        <li class="a">Comprar pan</li>
+        <li class="b">Enviar correos del trabajo</li>
+    </ul>
+
+    <p class="t1 t2">Párrafo 1</p>
+    <p class="t1">Párrafo 2</p>
+    <p class="t2">Párrafo 3</p>
+    <p class="t1 t2">Párrafo 4</p>
+    <p>Párrafo 5</p>
+</body>
+
+</html>

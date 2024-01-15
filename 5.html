@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>The Avengers</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      let newLi = $('<li>', {
+        text: "Black Widow"
+      });
+      $('ul').append(newLi);
+
+      let redLi = $('<li>', {
+        text: 'Red Widow',
+      });
+      $('ul').prepend(redLi);
+
+      $('li:eq(0)').insertAfter($('li:eq(3)'));
+
+      $('li:eq(0)').text($('head>title').text());
+
+      let otherLi = $('<li>', {
+        text: 'Javier Abril'
+      });
+      otherLi.insertBefore($('li:eq(1)'));
+    });
+  </script>
+</head>
+
+<body>
+  <ul class="avengers">
+    <li>Ironman</li>
+    <li>Thor</li>
+    <li>Captain America</li>
+    <li>Hulk</li>
+  </ul>
+
+</body>
+
+</html>

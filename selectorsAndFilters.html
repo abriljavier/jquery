@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            //selectores de elementos
+            console.log($('div'));
+            console.log($('.foo'));
+            console.log($('*').length);
+            console.log($('div#div4 li'));
+            console.log($('p+div'));
+            console.log($('p~div'));
+            console.log($('div:last,div:first'));
+            console.log($('div:odd'));
+            //seleccionar el li que pone seven
+            console.log($('li:eq(6)'));
+            console.log($("#div4 li:eq(2)"));
+            //los dos primeros divs
+            console.log($('div:eq(2),div:lt(2)'));
+            //negación
+            console.log($("div:not(div:eq(2))"));
+            //filtros de atributos
+            console.log($("a[name]"));
+            console.log($("a[target='_parent']"));
+            console.log($("a[href*='solvam']"));
+            console.log($("a[href*='https']"));
+            //^empieza por, $ termina en, * contiene, ! niega
+
+            //filtros de contenido
+            console.log($("a:contains('Solvam')"));
+            console.log($("div:empty"));
+            console.log($('div:has(li[class=li])'));
+            console.log($('div:parent'));
+            console.log($(':header'));
+            console.log($('div:hidden'));
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <h1></h1>
+    <h2></h2>
+    <h3></h3>
+
+    <a href="http://www.solvam.es" target="_blank" name="solvam">Go to Solvam.es</a>
+
+    <div id="div1" class="foo">Div1</div>
+    <div id="div2" class="foo">
+        <ul>
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+
+    <a href="https://www.microsoft.com" target="_parent" name="Microsoft">Visit Microsoft.com</a>
+
+    <div id="div3" class="fii"></div>
+    <p>Hello world</p>
+    <div id="div4" class="fii">
+        <ul>
+            <li class="li">4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+        </ul>
+    </div>
+    <div id="div5" class="fuu">Div5</div>
+</body>
+
+</html>
