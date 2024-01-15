@@ -7,15 +7,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script>
     $(document).ready(function () {
-      var allPs = $('p[class]');
 
       function replaceWithH1() {
-        for (const p of allPs) {
+        var allPs = $('p[class]');
+        for (let i = 0; i < allPs.length; i++) {
           let newElement = $('<h1>', {
-            text: p.innerText,
+            text: allPs[i].innerText,
           });
-          console.log(newElement.text());
-          $('p[class]').replaceWith(newElement);
+          allPs.eq(i).replaceWith(newElement);
         }
       }
 

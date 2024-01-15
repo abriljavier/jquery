@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DWEC</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('li:eq(0)').clone().appendTo($('ul'));
+
+      $('p:eq(0)').css({
+        'border': '4px solid red',
+        'background-color': 'grey',
+      })
+
+      $('li:eq(0)').remove();
+
+      $('ul').empty();
+
+      $('ul').append('<li>One</li><li>Two</li><li>Three</li>')
+
+      let psLength = $('p').length + 1;
+      for (let i = psLength; i <= 10; i++) {
+        let newP = `<p>Test text ${i}</p>`
+        $('body').append(newP);
+      }
+
+    });
+  </script>
+</head>
+
+<body>
+
+  <ul class="avengers">
+    <li>Ironman</li>
+    <li>Thor</li>
+    <li>Captain America</li>
+    <li>Hulk</li>
+  </ul>
+
+  <p>Test text</p>
+  <p>Test text 2</p>
+  <p>Test text 3</p>
+  <p>Test text 4</p>
+
+</body>
+
+</html>
