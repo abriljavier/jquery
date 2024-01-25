@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>DWEC</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+    }
+
+    .oneClass {
+      background-color: red;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      let newItem1 = $('<option>', {
+        value: 5,
+        text: 5,
+      });
+      let newItem2 = $('<option>', {
+        value: 6,
+        text: 6,
+      });
+
+      $('select').append([newItem1, newItem2])
+    });
+  </script>
+</head>
+
+<body>
+  <select name="select">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+</body>
+
+</html>

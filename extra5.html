@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>DWEC</title>
+  <style>
+    .mainContent {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .input {
+        border: 1px solid blue;
+        height: 300px;
+        width: 300px;
+      }
+
+      .carousel {
+        margin: 10%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        img {
+          width: 100px;
+          margin: 0% 2%;
+        }
+      }
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jqueryui@1.11.1/jquery-ui.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('img').hover(function () {
+        $(this).css("transform", "scale(1.5)");
+      },
+        $('img').hover(function () {
+          $(this).css("transform", "scale(1)");
+        },
+        ));
+
+      $('.carousel img').draggable({
+        revert: true,
+      });
+
+      $('.input').droppable({
+        accept: ".carousel img",
+        drop: function (event, ui) {
+          var droppedImageSrc = ui.helper.attr("src");
+          console.log(droppedImageSrc);
+          $(this).html('<img src="' + droppedImageSrc + '" alt="">');
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="mainContent">
+    <div class="input"></div>
+    <div class="carousel">
+      <img src="./img/thumbs/city.jpg" alt=""><img src="./img/thumbs/dahlias.jpg" alt=""><img
+        src="./img/thumbs/frame.jpg" alt="">
+    </div>
+  </div>
+</body>
+
+</html>

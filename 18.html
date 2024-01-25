@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>DWEC</title>
+  <style>
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#button').one("click", function () {
+        let newDiv = "<div style='width: 200px; height: 100px; border: 2px solid red' ></div>"
+        $('body').append(newDiv);
+      })
+    });
+  </script>
+</head>
+
+<body>
+  <button id="button">Click</button>
+</body>
+
+</html>

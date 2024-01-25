@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>DWEC</title>
+  <style>
+    .mainContent {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    img {
+      width: 150px;
+      height: 200px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .card {
+      border: 2px solid blue;
+      background-color: lightblue;
+      margin: 5% 0%;
+    }
+
+    .readed {
+      border: 2px solid red;
+      background-color: lightcoral;
+    }
+
+    .form {
+      margin-top: 5%;
+      display: flex;
+      justify-content: center;
+    }
+
+    form {
+      width: 300px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jqueryui@1.11.1/jquery-ui.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      let miBookArray = [
+        {
+          id: 123,
+          cover: "city.jpg",
+          title: "The City",
+          author: "DanGomez",
+          alreadyRead: true,
+        }, {
+          id: 222,
+          cover: "dahlias.jpg",
+          title: "Flowers",
+          author: "Macario",
+          alreadyRead: false,
+        }, {
+          id: 5,
+          cover: "frame.jpg",
+          title: "Doom",
+          author: "DanGomez",
+          alreadyRead: false,
+        }, {
+          id: 777,
+          cover: "city.jpg",
+          title: "Another",
+          author: "Author1",
+          alreadyRead: true,
+        }
+      ];
+
+      function printCards(list, father) {
+        $(father).empty();
+        for (const iterator of list) {
+          let container = $('<div>', {
+            class: "card",
+          });
+          let img = $('<img>', {
+            src: "./img/thumbs/" + iterator.cover,
+          });
+          let h1 = $('<h1>', {
+            text: iterator.title,
+          });
+          let hidden = $('<p>', {
+            class: "hidden",
+            text: iterator.id,
+          });
+          let p = $('<p>', {
+            text: iterator.author,
+          });
+          let button = $('<button>', {
+            text: "Remove",
+          });
+          $(container).append($(img), $(h1), $(hidden), $(p), $(button));
+          $(father).append($(container));
+          $(container).toggleClass('readed', iterator.alreadyRead);
+        }
+        $('div.card').on("click", function () {
+          let selectedIndex = $(this).children(".hidden").text();
+          for (let i = 0; i < miBookArray.length; i++) {
+            if (miBookArray[i].id == selectedIndex) {
+              miBookArray[i].alreadyRead = !miBookArray[i].alreadyRead;
+            }
+          }
+          printCards(miBookArray, ".mainContent");
+        });
+        $('button').on("click", function () {
+          let selectedIndex = $(this).parent().children(".hidden").text();
+          for (let i = 0; i < miBookArray.length; i++) {
+            if (miBookArray[i].id == selectedIndex) {
+              miBookArray.splice(i, 1);
+            }
+          }
+          printCards(miBookArray, ".mainContent");
+        });
+      }
+      $('input[type="button"]').on("click", function () {
+        let mayor = 0;
+        for (const iterator of miBookArray) {
+          if (iterator.id > mayor) {
+            mayor = iterator.id;
+          }
+        }
+        let newBook = {
+          id: mayor + 1,
+          img: "https://picsum.photos/200/300",
+          title: $('input[name="title"]').val(),
+          author: $('input[name="author"]').val(),
+          alreadyRead: $('select[name="alreadyRead"]').val()
+        }
+        miBookArray.push(newBook);
+        printCards(miBookArray, ".mainContent");
+      });
+
+      printCards(miBookArray, ".mainContent");
+
+      localStorage.setItem("patata", "patata");
+      console.log(localStorage.getItem("patata"));
+      let arrayJson = JSON.stringify(miBookArray);
+      sessionStorage.setItem("Farlopa", arrayJson);
+      console.log(sessionStorage.getItem("Farlopa"));
+      localStorage.removeItem("Farlopa");
+      localStorage.clear();
+
+    });
+  </script>
+</head>
+
+<body>
+  <h1>My Book List</h1>
+  <div class="mainContent">
+  </div>
+  <div class="form">
+    <form action="#">
+      Title<input type="text" name="title">
+      Author<input type="text" name="author">
+      Have u readed?<select name="alreadyRead" id="">
+        <option value="true">yes</option>
+        <option value="false">nu</option>
+      </select>
+      <input type="button" value="Create">
+    </form>
+  </div>
+</body>
+
+</html>

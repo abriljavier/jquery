@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>DWEC</title>
+  <style>
+    .active {
+      border: 2px dashed red;
+    }
+
+    .addCSS {
+      background-color: lightblue;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('p').on("click", function () {
+        $(this).addClass("active");
+      });
+
+      $('#clearActive').on("click", function () {
+        $('p').removeClass("active");
+      });
+
+      $('#checkActive').on("click", function () {
+        if ($('p').hasClass("active")) {
+          let newSpan = $('<span>', { text: "Active" });
+          $('p[class="active"]').prepend(newSpan);
+        }
+      });
+
+      $('#toggleActive').on("click", function () {
+        $('p').toggleClass("active");
+      })
+
+      $('#addCSS').on("click", function () {
+        if ($('p').hasClass("active")) {
+          $('p[class="active"]').addClass('addCSS');
+        }
+      })
+    });
+  </script>
+</head>
+
+<body>
+  <button id="clearActive">Click to delete the class</button>
+  <button id="checkActive">Click to check the class</button>
+  <button id="toggleActive">Click to toggle Active</button>
+  <button id="addCSS">addCSS</button>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem alias provident esse cumque, voluptate animi
+    iste, aspernatur ducimus reprehenderit perspiciatis molestias quo reiciendis. Nostrum, porro doloremque soluta
+    blanditiis qui exercitationem?</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem alias provident esse cumque, voluptate animi
+    iste, aspernatur ducimus reprehenderit perspiciatis molestias quo reiciendis. Nostrum, porro doloremque soluta
+    blanditiis qui exercitationem?</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem alias provident esse cumque, voluptate animi
+    iste, aspernatur ducimus reprehenderit perspiciatis molestias quo reiciendis. Nostrum, porro doloremque soluta
+    blanditiis qui exercitationem?</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem alias provident esse cumque, voluptate animi
+    iste, aspernatur ducimus reprehenderit perspiciatis molestias quo reiciendis. Nostrum, porro doloremque soluta
+    blanditiis qui exercitationem?</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem alias provident esse cumque, voluptate animi
+    iste, aspernatur ducimus reprehenderit perspiciatis molestias quo reiciendis. Nostrum, porro doloremque soluta
+    blanditiis qui exercitationem?</p>
+</body>
+
+</html>

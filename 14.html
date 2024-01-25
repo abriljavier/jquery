@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>DWEC</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+    }
+
+    .oneClass {
+      background-color: red;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      let flag = true
+      $('div').on("mouseover", function () {
+        if (flag) {
+          $('div').toggleClass("oneClass");
+        }
+      })
+
+      $('div').click("click", function () {
+        flag = false;
+        $('div').removeClass("oneClass");
+        let newContent = "<h1>Hello</h1><p>Vaya palo</p>";
+        $('div').empty();
+        $('div').append(newContent);
+      })
+    });
+  </script>
+</head>
+
+<body>
+  <div>
+    <p>Title</p>
+    <p>AAAAAAAAAAAAAAA</p>
+    <p>AAAAAAAAAAAAAAA</p>
+    <p>AAAAAAAAAAAAAAA</p>
+    <p>AAAAAAAAAAAAAAA</p>
+    <p>AAAAAAAAAAAAAAA</p>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>DWEC</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .name-tag {
+      border: 1px solid red;
+      border-radius: 6px;
+      width: 300px;
+      height: 150px;
+      margin-bottom: 10px;
+      background: red;
+      font-family: sans-serif;
+    }
+
+    .name-tag h1 {
+      color: white;
+      text-align: center;
+      height: 25px;
+      margin: 5px 0px 0px 0px;
+      font-size: 20px;
+    }
+
+    .name-tag p {
+      position: relative;
+      left: 5px;
+      padding: 10px;
+      width: 290px;
+      height: 90px;
+      background: white;
+      font-family: cursive;
+      font-size: 20px;
+      text-align: center;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      let array = [];
+      while (array.length != 3) {
+        let value = prompt("Please enter three names!", "Macarena");
+        array.push(value);
+      }
+      let greeting = prompt("Please enter a greeting", "My name is...");
+      console.log(array);
+      $('h1').text(greeting);
+      let p = $('.name-tag>p');
+      console.log(p);
+      $(p).each(function (i) {
+        $(p[i]).text(array[i]);
+        // console.log($(p[i]).text('hola'));
+      })
+
+    });
+  </script>
+</head>
+
+<body>
+  <p>These are the name tags for the party:</p>
+  <div class="name-tag">
+    <h1>Greeting</h1>
+    <p>Name Surname</p>
+  </div>
+
+  <div class="name-tag">
+    <h1>Greeting</h1>
+    <p>Name Surname</p>
+  </div>
+
+  <div class="name-tag">
+    <h1>Greeting</h1>
+    <p>Name Surname</p>
+  </div>
+</body>
+
+</html>

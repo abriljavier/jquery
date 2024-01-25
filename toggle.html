@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>clases</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        if ($(".socials").hasClass("hidden")) {
+          alert("Hi");
+        }
+        if ($(".socials").is("hidden")) {
+          alert("H0");
+        }
+        $(".share-button").click(function (e) {
+          $(".socials").toggleClass("hidden");
+        });
+      });
+    </script>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="share-button">Share</button><br />
+    <img src="twitter.png" class="socials" />
+    <img src="facebook.jpg" class="socials hidden" />
+    <img src="instagram.png" class="socials" />
+  </body>
+</html>

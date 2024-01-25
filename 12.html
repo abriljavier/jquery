@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>DWEC</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Use a function to get the value of one of the elements.
+      function getValue() {
+        return $('input[type="radio"]:checked').val();
+      }
+      console.log(getValue());
+
+      // Use a function to set a value in an element.
+      function setValue(value) {
+        $('input[type="checkbox"][id="checkbox1"]').val(value);
+      }
+      setValue(123);
+
+      // Use a function to set multiple values at once.
+      $('select').val(["tenis", "football"]);
+
+      // If we need to get all the values from the checkboxes. How can we do it?
+      let checkboxes = $('input[type="checkbox"]:checked');
+      let values = [];
+      for (const iterator of checkboxes) {
+        values.push($(iterator).val());
+      }
+      console.log(values);
+
+    });
+  </script>
+</head>
+
+<body>
+  <form action="#" method="put" onsubmit="return false;">
+    <div>
+      <label>Text:</label>
+      <input type="text" id="aTextField" name="someTextField" />
+    </div>
+    <div>
+      <label>Radio group:</label>
+      <input type="radio" name="radioGroup" id="radioA" value="A" /> A
+      <input type="radio" name="radioGroup" id="radioB" value="B" checked="checked" />
+      B <input type="radio" name="radioGroup" id="radioC" value="C" /> C
+    </div>
+    <div>
+      <label>Checkboxes:</label>
+      <input type="checkbox" name="checkboxes" id="checkbox1" value="1" /> 1
+      <input type="checkbox" name="checkboxes" id="checkbox2" value="2" /> 2
+      <input type="checkbox" name="checkboxes" id="checkbox3" value="3" checked="checked" />
+      3 <input type="checkbox" name="checkboxes" id="checkbox4" value="4" /> 4
+    </div>
+    <div>
+      <label>Select-Option</label>
+      <select name="hobbies" multiple>
+        <option value="tenis">Tenis</option>
+        <option value="football">Football</option>
+        <option value="basket">Basket</option>
+      </select>
+    </div>
+    <button type="submit" id="submitButton">Submit</button>
+  </form>
+</body>
+
+</html>

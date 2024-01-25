@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>DWEC</title>
+  <style>
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+
+      let cssRule = '.field{border: 1px solid black; margin: 5px 0;}';
+      $('style').append(cssRule)
+
+      for (let i = 0; i < 4; i++) {
+        let pair;
+        if (i < 3) {
+          pair = $('#contact label:eq(' + i + '), #contact input:eq(' + i + ')');
+        } else {
+          pair = $('#contact label:eq(' + i + '), #contact textarea');
+        }
+        console.log(pair);
+        $(pair).wrapAll("<div class='field' ></div>")
+      }
+
+    });
+  </script>
+</head>
+
+<body>
+  <form id="contact" method="post">
+    <label for="name">Name:</label>
+    <input id="name" name="name">
+    <label for="email">Email:</label>
+    <input id="email" name="email">
+    <label for="subject">Subject:</label>
+    <input id="subject" name="subject">
+    <label for="message">Message:</label>
+    <textarea id="message" name="message"></textarea>
+    <input type="button" value="Submit">
+  </form>
+</body>
+
+</html>
